@@ -89,9 +89,16 @@
     grim
     slurp
   ];
-  environment.shellAliases = {
-	nix-switch = "cd ~/cocktop && sudo nixos-rebuild switch --impure --flake . && git add . && git commit -m \"Update: \$(date +'%Y-%m-%d %H:%M:%S')\" && git push skibidi-nano main";
-  };
+
+  programs.bash.interactiveShellInit = ''
+	nix-switch() {
+	  cd ~/cocktop && \
+  	  sudo nixos-rebuild switch --impure --flake . && \
+  	  git add . && \
+          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S:')" && \
+	  git push skibidi-nano main
+ 	}
+      '';
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
