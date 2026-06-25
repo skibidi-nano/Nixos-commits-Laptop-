@@ -30,6 +30,14 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  programs.steam.enable = true;
+
+  # Aktiviert Sway und sorgt für sauberes GTK-Theming
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -65,7 +73,7 @@
     packages = with pkgs; [];
   };
 
-  programs.steam.enable = true;
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -90,7 +98,12 @@
     xclip
     grim
     slurp
-    
+    swaylock
+    swayidle
+    wl-clipboard
+    mako           
+    waybar         
+    alacritty
   ];
 
   programs.bash.interactiveShellInit = ''
