@@ -111,6 +111,9 @@ in
     mako           
     waybar         
     alacritty
+    neovim
+    bat
+    tree
   ];
 
   programs.bash.interactiveShellInit = ''
