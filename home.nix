@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }: # 'lib' hinzugefügt, da du es unten benutzt!
+{config, pkgs, lib, ... }: 
 
 {
   home.username = "j";
@@ -8,27 +8,29 @@
   # wrapperFeatures.gtk = true; # Falls das zu Sway gehört, müsste es inwayland.windowManager.sway stehen!
 
   wayland.windowManager.sway = {
-    enable = true; # Falls du Sway nutzt, muss das hier drumherum
+    enable = true; 
     config = {
-      modifier = "Mod4"; # Korrigiert von 'modifer' zu 'modifier'
+      modifier = "Mod4"; 
       terminal = "${pkgs.foot}/bin/foot";
 
       input = {
         "type:keyboard" = {
           xkb_layout = "de";
-        }; # Hier fehlte das Schließen des Keyboards!
+        }; 
       };
 
-      # wofi hier bro
+      menu = "${pkgs.wofi}/bin/wofi --show drun";
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
         "${modifier}+p" = "exec ${config.wayland.windowManager.sway.config.menu}";
+        "${modifier}+space" = "exec ${pkgs.waybar}/bin/waybar";
+        "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
       };
 
       bars = [
         {
-          command = "${pkgs.waybar}/bin/waybar"; # Hier fehlte das Semikolon!
+          command = "${pkgs.waybar}/bin/waybar"; 
         }
       ];
     };
