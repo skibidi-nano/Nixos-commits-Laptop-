@@ -114,6 +114,7 @@ in
     neovim
     bat
     tree
+    rofi
   ];
 
   programs.bash.interactiveShellInit = ''
