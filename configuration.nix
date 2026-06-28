@@ -115,6 +115,7 @@ in
     bat
     tree
     rofi
+    kdePackages.dolphin
   ];
 
   programs.bash.interactiveShellInit = ''
