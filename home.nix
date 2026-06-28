@@ -14,7 +14,7 @@
       modifier = "Mod4";
       
        
-      terminal = "${pkgs.foot}/bin/foot";
+      terminal = "${pkgs.kitty}/bin/kitty";
 
       input = {
         "type:keyboard" = {
@@ -38,7 +38,7 @@
       ];
       output = {
         "*" = {
-          bg = "/home/j/Pictures/Wallpapers/a_mountain_range_with_snow.png fill";
+          bg = "/home/j/Pictures/Wallpapers/a_group_of_people_in_a_room.jpg";
         };
       };
     };
