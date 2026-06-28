@@ -8,9 +8,12 @@
   # wrapperFeatures.gtk = true; # Falls das zu Sway gehört, müsste es inwayland.windowManager.sway stehen!
 
   wayland.windowManager.sway = {
-    enable = true; 
+    enable = true;
+    checkConfig = false; 
     config = {
-      modifier = "Mod4"; 
+      modifier = "Mod4";
+      
+       
       terminal = "${pkgs.foot}/bin/foot";
 
       input = {
@@ -33,6 +36,11 @@
           command = "${pkgs.waybar}/bin/waybar"; 
         }
       ];
+      output = {
+        "*" = {
+          bg = "/home/j/Pictures/Wallpapers/a_mountain_range_with_snow.png fill";
+        };
+      };
     };
   };
 
