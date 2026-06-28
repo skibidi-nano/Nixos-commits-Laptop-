@@ -24,7 +24,7 @@
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
         "${modifier}+p" = "exec ${config.wayland.windowManager.sway.config.menu}";
-        "${modifier}+space" = "exec ${pkgs.waybar}/bin/waybar";
+        "${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi";
         "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
       };
 
