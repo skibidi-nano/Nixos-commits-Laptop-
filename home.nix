@@ -38,7 +38,7 @@
       ];
       output = {
         "*" = {
-          bg = "/home/j/Pictures/Wallpapers/a_group_of_people_in_a_room.jpg";
+          bg = "/home/j/Pictures/Wallpapers/monogatari.png";
         };
       };
     };
