@@ -38,7 +38,7 @@
       ];
       output = {
         "*" = {
-          bg = "/home/j/Pictures/Wallpapers/monogatari.png";
+          bg = "/home/j/Pictures/Wallpapers/monogatari.png fill";
         };
       };
     };
