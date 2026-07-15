@@ -118,6 +118,7 @@ in
     tree
     rofi
     kdePackages.dolphin
+    kicad
   ];
 
   programs.bash.interactiveShellInit = ''
