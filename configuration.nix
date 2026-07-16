@@ -119,6 +119,7 @@ in
     rofi
     kdePackages.dolphin
     kicad
+    gcc
   ];
 
   programs.bash.interactiveShellInit = ''
