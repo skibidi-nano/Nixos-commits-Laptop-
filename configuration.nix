@@ -121,6 +121,7 @@ in
     kicad
     gcc
     qemu
+    prismlauncher
   ];
 
   programs.bash.interactiveShellInit = ''
