@@ -120,6 +120,7 @@ in
     kdePackages.dolphin
     kicad
     gcc
+    qemu
   ];
 
   programs.bash.interactiveShellInit = ''
