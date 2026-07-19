@@ -122,7 +122,9 @@ in
     gcc
     qemu
     prismlauncher
-  ];
+    neovim
+    zed
+   ];
 
   programs.bash.interactiveShellInit = ''
 	nix-switch() {
