@@ -24,7 +24,16 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  
+  # Realtime-Kit für unterbrechungsfreie Audio-Verarbeitung
+  security.rtkit.enable = true;
+
+  # PipeWire Sound-Server aktivieren und Schnittstellen bereitstellen
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -115,5 +124,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
+    system.stateVersion = "26.05"; # Did you read the comment?
 }
