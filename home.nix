@@ -5,62 +5,37 @@
   home.homeDirectory = "/home/j";
   home.stateVersion = "26.05";
 
-  # wrapperFeatures.gtk = true; # Falls das zu Sway gehört, müsste es inwayland.windowManager.sway stehen!
-
-  wayland.windowManager.sway = {
+  # Aktiviert und konfiguriert den Zed-Editor direkt im Home Manager
+  programs.zed-editor = {
     enable = true;
-    checkConfig = false; 
-    config = {
-      modifier = "Mod4";
-      
-       
-      terminal = "${pkgs.kitty}/bin/kitty";
-
-      input = {
-        "type:keyboard" = {
-          xkb_layout = "de";
-        }; 
+    extensions = [ "nix" ];
+    userSettings = {
+      theme = {
+        mode = "system";
+        dark = "One Dark";
+        light = "One Light";
       };
-
-      menu = "${pkgs.wofi}/bin/wofi --show drun";
-      keybindings = let
-        modifier = config.wayland.windowManager.sway.config.modifier;
-      in lib.mkOptionDefault {
-        "${modifier}+p" = "exec ${config.wayland.windowManager.sway.config.menu}";
-        "${modifier}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
-      };
-
-      bars = [
-        {
-          command = "${pkgs.waybar}/bin/waybar"; 
-        }
-      ];
-      output = {
-        "*" = {
-          bg = "/home/j/Pictures/Wallpapers/monogatari.png fill";
-        };
-      };
+      vim_mode = true;
+      ui_font_size = 16;
+      buffer_font_size = 16;
     };
-  };
+  };   
 
-  programs.waybar = {
-    enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "cpu" "memory" "clock" ];
-
-        "clock" = {
-          format = "{:%Y-%m-%d | %H:%M:%S}";
-          interval = 1;
-        };
-      };
-    };
-  };
+  home.packages = with pkgs; [
+    firefox
+    discord
+    spotify
+    freecad
+    kicad
+    keepassxc
+    prismlauncher
+    r2modman
+    kitty
+    fastfetch
+    tree
+    bat
+    git
+    neovim
+    gcc
+ ];
 }
-

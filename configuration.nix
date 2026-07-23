@@ -3,20 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-in
-{
-  imports =
-    [ # Include the results of the hardware scan.
-     /etc/nixos/hardware-configuration.nix
-     (import "${home-manager}/nixos")
-    ];
 
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users.j = import ./home.nix;
+{ 
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -38,12 +30,6 @@ in
   networking.networkmanager.enable = true;
 
   programs.steam.enable = true;
-
-  # Aktiviert Sway und sorgt für sauberes GTK-Theming
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -89,41 +75,10 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    firefox
-    discord
-    kitty
-    foot
-    spotify
+    vim-full
     gparted
-    fastfetch
     doas
-    freecad
-    keepassxc
-    r2modman
-    git
-    bat
-    xclip
-    grim
-    slurp
-    swaylock
-    swayidle
-    wl-clipboard
-    mako           
-    waybar         
-    alacritty
-    neovim
-    bat
-    tree
-    rofi
-    kdePackages.dolphin
-    kicad
-    gcc
     qemu
-    prismlauncher
-    neovim
-    zed
    ];
 
   programs.bash.interactiveShellInit = ''
