@@ -5,21 +5,53 @@
   home.homeDirectory = "/home/j";
   home.stateVersion = "26.05";
 
-  # Aktiviert und konfiguriert den Zed-Editor direkt im Home Manager
-  programs.zed-editor = {
+  programs.git = {
     enable = true;
-    extensions = [ "nix" ];
-    userSettings = {
-      theme = {
-        mode = "system";
-        dark = "One Dark";
-        light = "One Light";
+    userName = "skibidi-nano";
+    userEmail = "nanulianhkr@gmail.com";
+  };
+
+  # VS Code Konfiguration (Haupteditor)
+  programs.vscode = {
+    enable = true;
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        wakatime.vscode-wakatime
+        jnoortheen.nix-ide
+        mkhl.direnv
+      ];
+      userSettings = {
+        "wakatime.cliPath" = "${pkgs.wakatime-cli}/bin/wakatime-cli";
+        "workbench.colorTheme" = "Solarized Light";
+
+        # Inline Suggestions / Autocomplete deaktivieren
+        "editor.inlineSuggest.enabled" = false;
+        "editor.quickSuggestions" = {
+          "other" = "off";
+          "comments" = "off";
+          "strings" = "off";
+        };
       };
-      vim_mode = true;
-      ui_font_size = 16;
-      buffer_font_size = 16;
     };
-  };   
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+
+  # WakaTime / Hackatime Konfiguration
+  home.file.".wakatime.cfg".text = ''
+    [settings]
+    api_url = https://hackatime.hackclub.com/api/hackatime/v1
+    api_key = 0dc2b09c-4551-4ebb-92c3-19756595279a
+    heartbeat_rate_limit_seconds = 30
+    debug = true
+    hide_filenames = false
+    hide_branch_names = false
+  '';
+ 
 
   home.packages = with pkgs; [
     firefox
