@@ -69,5 +69,6 @@
     git
     neovim
     gcc
+    slack
  ];
 }
