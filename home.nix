@@ -48,6 +48,31 @@
         "blur, noctalia"
         "ignorezero, noctalia"
       ];
+
+      # Super-Taste (Windows-Taste) definieren
+      "$mod" = "SUPER";
+
+      # Tastenkombinationen
+      bind = [
+        "$mod, Q, exec, kitty"
+        "$mod, C, killactive,"
+        "$mod, M, exit,"
+        "$mod, R, exec, rofi -show drun"
+        "$mod, E, exec, dolphin"
+        "$mod, V, togglefloating,"
+        
+        # Fokus wechseln (Vim keybindings)
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+      ];
+
+      # Fenster mit der Maus verschieben / skalieren
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
     };
   };
 
