@@ -21,8 +21,8 @@
     initExtra = ''
       nix-switch() {
         cd ~/cocktop && \
-        sudo nixos-rebuild switch --impure --flake . && \
         git add . && \
+        sudo nixos-rebuild switch --impure --flake . && \
         git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')" && \
         git push skibidi-nano main
       }
