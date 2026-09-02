@@ -1,5 +1,5 @@
 {
-  description = "J's Flake Configuration with Hyprland, Plasma, and Noctalia";
+  description = "Flake configuration for cocktop";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -18,7 +18,7 @@
   outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs: {
     nixosConfigurations.cocktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; }; 
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager

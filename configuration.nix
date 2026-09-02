@@ -45,6 +45,12 @@
   services.desktopManager.plasma6.enable = true;
   programs.hyprland.enable = true; # Enables required system modules, polkit, and greeter hooks
 
+  # XDG Portals for Hyprland/Noctalia communications
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   # Users
   users.users."j" = {
     isNormalUser = true;

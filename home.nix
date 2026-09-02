@@ -37,6 +37,27 @@
     # };
   };
 
+  # Hyprland Window Manager & Autostart
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      exec-once = [
+        "noctalia"
+      ];
+      layerrule = [
+        "blur, noctalia"
+        "ignorezero, noctalia"
+      ];
+      "$mod" = "SUPER";
+      bind = [
+        "$mod, Q, exec, kitty"
+        "$mod, C, killactive,"
+        "$mod, M, exit,"
+        "$mod, R, exec, rofi -show drun"
+      ];
+    };
+  };
+
   # VS Code Configuration
   programs.vscode = {
     enable = true;
@@ -95,5 +116,11 @@
     mako
     wl-clipboard
     inputs.noctalia.packages.${pkgs.system}.default
+
+    # Fonts & Icons for Noctalia styling
+    nerd-fonts.jetbrains-mono
+    papirus-icon-theme
+    qt6.qtwayland
+    kdePackages.qtsvg
   ];
 }
