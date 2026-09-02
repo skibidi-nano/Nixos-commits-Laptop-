@@ -15,6 +15,9 @@
     userEmail = "nanulianhkr@gmail.com";
   };
 
+  xdg.configFile."hypr/hyprland.lua".enable = false;
+  xdg.configFile."hypr/.luarc.json".enable = false;
+
   # Cleaned up interactive shell helper (moved out of system configuration)
   programs.bash = {
     enable = true;
