@@ -13,9 +13,14 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    harbor-stremio = {
+      url = "github:axioncs/harbor-flake?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, noctalia, harbor-stremio, ... }@inputs: {
     nixosConfigurations.cocktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
