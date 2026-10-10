@@ -130,6 +130,7 @@
     neovim
     gcc
     slack
+    inputs.harbor-stremio.packages.${pkgs.system}.default
     
     # Wayland / Hyprland essentials
     waybar
@@ -143,5 +144,6 @@
     papirus-icon-theme
     qt6.qtwayland
     kdePackages.qtsvg
+
   ];
 }
