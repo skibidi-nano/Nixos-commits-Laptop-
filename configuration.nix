@@ -69,6 +69,8 @@
     qemu
   ];
 
+  #services.logind.lidSwitch = "ignore";
+
   services.openssh.enable = true;
   programs.steam.enable = true;
 
